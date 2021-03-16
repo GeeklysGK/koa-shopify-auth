@@ -6,7 +6,9 @@ import redirectionPage from './redirection-page';
 
 export default function createTopLevelRedirect(apiKey: string, path: string) {
   return function topLevelRedirect(ctx: Context) {
-    const {host, query} = ctx;
+    // @ts-ignore
+    const {query} = ctx;
+    const {host} = ctx.header;
     const {shop} = query;
 
     const params = {shop};
